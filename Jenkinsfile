@@ -1,4 +1,7 @@
 node('master'){
+  tools{
+    maven 'MAVEN_HOME'
+  }
 stage('initialize'){
 checkout scm
 }
