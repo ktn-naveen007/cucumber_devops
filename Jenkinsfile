@@ -3,13 +3,7 @@ node('master'){
 stage('initialize'){
 checkout scm
 }
-  stage('build'){
-    withMaven(
-    maven:'MAVEN_HOME'
-    )   {
-      sh "mvn clean install"
-    }
-  }
+  
 stage('compile'){
 sh '''
 mvn compile
