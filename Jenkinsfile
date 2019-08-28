@@ -1,10 +1,15 @@
 node('master'){
-  tools{
-    maven 'MAVEN_HOME'
-  }
+
 stage('initialize'){
 checkout scm
 }
+  stage('build'){
+    withMaven(
+    maven:'MAVEN_HOME'
+    )   {
+      sh "mvn clean install"
+    }
+  }
 stage('compile'){
 sh '''
 mvn compile
